@@ -1,0 +1,132 @@
+.coaches-list {
+    max-width: 1200px;
+    /* width:100%; */
+    margin: 20 auto;
+    padding: 20px;
+    align-items: center;
+  }
+  
+  .coaches-list h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+    font-size: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: -webkit-linear-gradient(16deg,#4b90ff,#ff5546);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  
+  .coaches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 50px;
+    justify-items: center;
+    padding: 20px;
+    max-width: 1200px
+  }
+  
+  .coach-card {
+    background-color: #f0f4f9;
+    border-radius: 15px;
+    padding: 50px 30px ;
+    margin-right:-20px ;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.2s;
+    
+  }
+  
+  .coach-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .coach-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  .plan-type{
+    font-size: 15px;
+    font-family:  Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    background: #ff5546;
+    border-radius: 20px;
+    padding: 7px ;
+  }
+  .people-coached{
+    display: flex;
+    align-items: row;
+    gap: 10px;
+    justify-content: center;
+  }
+  .people-coached .divider{
+    font-size: 14px;
+    font-weight: bold;
+    color: gray;
+  }
+  .people-coached p{
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size:15px;
+    font-weight: 600;
+    color: #3b3a3a77;
+    
+  }
+  
+  .coach-card h2 {
+    font-weight: 600;
+    font-size: 20px;
+    font-family:  Arial, Helvetica, sans-serif;
+    margin: 10px 0;
+  }
+  
+  .coach-card p {
+    margin: 5px 0;
+  }
+  .slot{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #3b3a3a77;
+  }
+
+  .plans-btn{
+    background-color: #f7f8f9;
+    color: black;
+    border-color:none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 600;
+  }
+  
+  .plans-btn:hover {
+    background-color: gray;
+    /* border-color: #f7f8f9; */
+  }
+  .plan{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 0px;
+    
+  }
+  .Chat{
+    background-color: #f7f8f9;
+    color: black;
+    border-color:none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 600;
+  }
+
+  .Chat:hover {
+    background-color: gray;
+  }
