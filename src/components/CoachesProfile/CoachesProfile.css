@@ -1,4 +1,217 @@
-.coach-profile {
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+
+  display:flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.top-box {
+  background-color: #a8a8ad;
+  margin:20px;
+  padding: 20px;
+  padding-left: 100px;
+  border-radius: 10px;
+  max-width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.profile-image-container {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 5px solid #1c1c1e;
+}
+
+.plan-type {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4caf50;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.profile-name {
+  margin-left: 20px;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  flex: 1 1 100%;
+
+  margin-top: 10px;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px; 
+  text-decoration: none;
+}
+
+.profile-actions .see-plans-btn {
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+  width: 45%;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.profile-actions .chat-btn:last-child {
+  margin-right: 0;
+
+  
+}
+
+.profile-actions .see-plans-btn .chat-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #1c1c1e;
+  padding: 10px 0;
+}
+
+@media (max-width: 768px) {
+  .top-box {
+    flex-direction: column;
+    align-items: center;
+    background: #8a8e8a;
+    margin: 10px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+  }
+
+  .header-left {
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+  }
+
+  .profile-pic {
+    width: 80px;
+    height: 80px;
+     
+  }
+  .plan-type{
+    bottom: 62px;
+    width: 50px;
+    font-size: 10px;
+  
+  }
+
+  .profile-name {
+    margin-left: 0;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+ .profile-actions {
+    flex-direction: column;
+    /* background-color: wheat; */
+  }
+
+  .profile-actions .see-plans-btn {
+    width: 50%;
+    margin-bottom: 10px;
+    margin-right: 15px; 
+    position: fixed;
+    bottom: 0;
+    right:0;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 0;
+    border-radius: 10px;
+
+  }
+  .profile-actions .chat-btn:last-child {
+    margin-bottom: 10px;
+    margin-left: 7px;    
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #1c1c1e;
+   padding: 10px 0;
+   border: 2px solid white;
+   border-radius: 10px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .coach-profile {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
@@ -22,8 +235,8 @@
     display: flex;    
     align-items: center;  
   }
-  
-  .profile-pic {
+   */
+/*   .profile-pic {
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -42,9 +255,9 @@
     border-radius: 15px;
     font-size: 12px;
     text-transform: uppercase;
-  }
+  } */
   
-  .profile-name {
+/*   .profile-name {
     color: white;
   margin-left: 180px;
   margin-top: -80px;
@@ -69,9 +282,9 @@
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  }
+  } */
 
-   .see-plans-btn {
+/*    .see-plans-btn {
     background-color: black;
     color: white;
   }
@@ -80,16 +293,10 @@
     background-color: white;
     color: black;
     border: 1px solid black;
-  } 
+  }  */
   
-  .profile-stats {
-    /* display: inline-flex;
-    justify-content: flex-start;
-    background-color: whitesmoke;
-    border-radius: 20px;
-    text-align: center;
-    margin-bottom: 30px;
-    padding: 10px; */
+/*   .profile-stats {
+   
 
    min-height: 100vh; 
    display: inline-flex;
@@ -113,9 +320,9 @@
   
   .profile-stats > div {
     margin-right: 40px;
-  }
+  } */
   
-  .divider {
+/*   .divider {
     width: 1px;
     background-color: #ccc;
     margin: 0 30px;
@@ -141,8 +348,8 @@
     padding-left: 20px;
     padding-bottom: 10px;
     margin-bottom: 10px;
-  }
-  .speciality-tags {
+  } */
+/*   .speciality-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -160,19 +367,19 @@
         display: flex;
         flex-direction: column;
         height: 100vh;
-        /* text-align: center; */
+       
     }
     .profile-header {
         display: flex;
         align-items: center;
-        /* text-align: center; */
+        
     }
     .profile-image-container {
       position: static;
       margin-bottom: 20px;
-    }
+    } */
   
-    .profile-name {
+/*     .profile-name {
       margin-left: 10;
       text-align: center;
     }
@@ -181,4 +388,4 @@
       padding-left: 0;
       justify-content: center;
     }
-}
+} */
