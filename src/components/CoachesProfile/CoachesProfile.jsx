@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Papa from 'papaparse';
-import { Star, User } from 'lucide-react';
+
 import './CoachesProfile.css';
 
 export default function CoachProfile() {
@@ -104,8 +104,8 @@ export default function CoachProfile() {
             </div>
           </div>
           <div className="coach-info">
-            <p><User size={16} /> {coach.peopleCoached} People Coached</p>
-            <p><Star size={16} /> {coach.rating} ({coach.reviews} Reviews)</p>
+            <p>&#128100; {coach.peopleCoached} People Coached</p>
+          <p>&#9733; {coach.rating} ({coach.reviews} Reviews)</p>
           </div>
           <div className="specialities">
             <h3>Speciality</h3>
@@ -154,7 +154,9 @@ export default function CoachProfile() {
                       </div>
                       <div className="review-rating">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} size={16} className={i < review.rating ? 'star filled' : 'star'} />
+                           <span key={i} className={i < review.rating ? 'star filled' : 'star'}>
+                     &#9733;
+                   </span>
                         ))}
                       </div>
                       <p className="review-text">{review.review}</p>
