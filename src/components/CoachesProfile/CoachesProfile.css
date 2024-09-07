@@ -1,391 +1,525 @@
-.container{
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-
-  display:flex;
-  flex-direction: column;
-  height: 100vh;
-}
-.top-box {
-  background-color: #a8a8ad;
-  margin:20px;
-  padding: 20px;
-  padding-left: 100px;
-  border-radius: 10px;
-  max-width: 100%;
-  box-sizing: border-box;
-  position: relative;
-  font-family: Arial, sans-serif;
-}
-
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.profile-image-container {
-  position: relative;
-  margin-bottom: 10px;
-}
-
-.profile-pic {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border: 5px solid #1c1c1e;
-}
-
-.plan-type {
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #4caf50;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.profile-name {
-  margin-left: 20px;
-  color: white;
-  font-size: 24px;
-  text-align: center;
-  flex: 1 1 100%;
-
-  margin-top: 10px;
-}
-
-.profile-actions {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-top: 20px; 
-  text-decoration: none;
-}
-
-.profile-actions .see-plans-btn {
-  background-color: black;
-  color: white;
-  border: 2px solid white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-right: 10px;
-  cursor: pointer;
-  width: 45%;
-  box-sizing: border-box;
-  text-decoration: none;
-}
-
-.profile-actions .chat-btn:last-child {
-  margin-right: 0;
-
-  
-}
-
-.profile-actions .see-plans-btn .chat-btn {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  background-color: #1c1c1e;
-  padding: 10px 0;
-}
-
-@media (max-width: 768px) {
-  .top-box {
-    flex-direction: column;
-    align-items: center;
-    background: #8a8e8a;
-    margin: 10px;
-    margin-top: 35px;
-    margin-bottom: 20px;
-    border-radius: 20px;
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #ffff;
+    font-color: #000000;
   }
-
-  .header-left {
-    flex-direction: column;
-    align-items: center;
-
+  
+  .coach-profile {
+    max-width: 100%;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #cccccc;
+  }
+  
+  
+  .cover-image {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
     position: relative;
   }
-
-  .profile-pic {
-    width: 80px;
-    height: 80px;
-     
-  }
-  .plan-type{
-    bottom: 62px;
-    width: 50px;
-    font-size: 10px;
   
-  }
-
-  .profile-name {
-    margin-left: 0;
-    margin-top: 10px;
-    font-size: 20px;
-    font-weight: 600;
-    text-align: center;
-  }
-
- .profile-actions {
-    flex-direction: column;
-    /* background-color: wheat; */
-  }
-
-  .profile-actions .see-plans-btn {
-    width: 50%;
-    margin-bottom: 10px;
-    margin-right: 15px; 
-    position: fixed;
-    bottom: 0;
-    right:0;
-    display: flex;
-    justify-content: space-evenly;
-    padding: 10px 0;
-    border-radius: 10px;
-
-  }
-  .profile-actions .chat-btn:last-child {
-    margin-bottom: 10px;
-    margin-left: 7px;    
-    position: fixed;
+  .cover-gradient {
+    position: absolute;
     bottom: 0;
     left: 0;
-    width: 30%;
-    display: flex;
-    justify-content: space-evenly;
-    background-color: #1c1c1e;
-   padding: 10px 0;
-   border: 2px solid white;
-   border-radius: 10px;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .coach-profile {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
+    right: 0;
+    height: 180px;
+     border-bottom: 10px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
     
-  .profile-header {    
-    background-color: #f0f0f0;
-    display: flex;
-    position: relative;
-    align-items: center;
-    border-radius: 20px;
-    justify-content: space-between;
-    padding: 90px;
-    /* margin-bottom: 70px; */
   }
   
- /* .profile-image-container {
-    position: absolute;
-    bottom: -50px;
-    display: flex;    
-    align-items: center;  
+  .profile-header {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    align-items: flex-end;
+    margin-top: -60px;
   }
-   */
-/*   .profile-pic {
-    width: 150px;
-    height: 150px;
+
+  .profile-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  .profile-pic-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-right: 20px;
+    z-index: 1;
+  }
+  
+  .profile-pic {
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    margin-right: 10px;
+    border: 3px solid #ffffff;
     object-fit: cover;
   }
-     
-  .plan-type { 
-    transform: translateX(-270%);
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    background-color: #3498db;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 12px;
-    text-transform: uppercase;
-  } */
   
-/*   .profile-name {
-    color: white;
-  margin-left: 180px;
-  margin-top: -80px;
-  margin-right: 10px;
-
+  .plan-type {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    color: #ffd700;
+    text-transform: uppercase;
+    background-color: #000000;
+    padding: 2px 6px;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+  
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    
+  }
+  
+  .profile-info h1 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0 ;
+    color: #ffffff;
+    
   }
   
   .profile-actions {
-    display: flex;
     position: absolute;
-    top: 110px;
+    top: 90px;
     right: 20px;
-    gap: 10px;
+    display: flex;
+    gap: 10px; 
+  }
+
+ 
+  .btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+ 
+  }
+  
+  .btn-primary {
+    background-color: #ffffff;
+    color: #000000;
+
+  }
+  
+  .btn-secondary {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .profile-content {
+    display: flex;
+    padding: 20px;
+    margin-top: 30px;
+  }
+  
+  .sidebar {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .main-content {
+    flex: 2;
+  }
+  
+  .stats {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-top: 15px;
+    /* border-bottom: 1px solid #333333; */
+    padding-bottom: 20px;
+  }
+  
+  .stat {
+    margin-right: 20px;
+    
     
   }
   
-  .see-plans-btn, .chat-btn {
-  text-decoration: none;
-  background-color: #3498db;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  } */
-
-/*    .see-plans-btn {
-    background-color: black;
-    color: white;
+  .stat-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+    
   }
   
-  .chat-btn {
-    background-color: white;
-    color: black;
-    border: 1px solid black;
-  }  */
-  
-/*   .profile-stats {
-   
-
-   min-height: 100vh; 
-   display: inline-flex;
-   flex-direction: column;
-
-   padding: 25px 15px;
+  .stat-label {
+    color: #999999;
+    font-size: 0.9rem;
+    margin: 0;
+    color:#1a1a1a;
   }
-  .following{
-    display: flex;
-    flex-direction: row;
-    margin-left: 40px;
-    gap: 40px;
-    font-size: 20px;
-    border-radius: 20px;
-    margin: 40px;
-    background: gainsboro;
-    margin-left: 0px;
-    padding-left: 60px;
-    padding-right: 60px;
-  }
-  
-  .profile-stats > div {
-    margin-right: 40px;
-  } */
-  
-/*   .divider {
-    width: 1px;
-    background-color: #ccc;
-    margin: 0 30px;
-  }
-
   
   .coach-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    background: gainsboro;
-    border-radius: 20px;
-    padding-left: 20px;
-    
+    margin-bottom: 7px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-top: 15px;
+    /* border-bottom: 1px solid #333333; */
+    padding-bottom: 20px;
   }
   
+  .coach-info p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0;
+    font-size: 0.9rem;
+   font-weight:bold;
+  }
   
   .specialities, .certifications {
     margin-bottom: 20px;
-    background: gainsboro;
-    border-radius: 20px;
-    padding-left: 20px;
-    padding-bottom: 10px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-top: 15px;
+    border-bottom: 1px solid #333333;
+    padding-bottom: 20px;
+  }
+  
+  .specialities h3, .certifications h3 {
+    font-size: 1.2rem;
     margin-bottom: 10px;
-  } */
-/*   .speciality-tags {
+    font-weight: bold;
+
+  }
+  
+  .speciality-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
+
   }
   
-  .speciality-tag {
-    background-color: #f0f0f0;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 14px;
+  .tag {
+    background-color: #a8a4a4;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    /* font-weight: bold; */
   }
   
-  @media (max-width: 768px) {
-    .coach-profile{
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-       
+  .certifications ul {
+    list-style-type: none;
+    padding-left: 0;
+    /* font-weight: bold; */
+    margin-right: 2px;
+  }
+  
+  .certifications li {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    
+  }
+  
+  .tabs {
+    display: flex;
+    /* border-bottom: 1px solid #333333; */
+    margin-bottom: 16px;
+  }
+  
+  .tab {
+    flex: 1;
+    padding: 10px 0;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .tab.active {
+    border-bottom: 2px solid #000000;
+    font-weight: bold;
+  }
+  
+  .tab-content {
+    max-height: calc(100vh - 300px);
+    overflow-y: auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+  
+  .review {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+  }
+  
+  .review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    
+  }
+  
+  .review-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 12px;
+  }
+  
+  .review-date {
+    font-size: 0.8rem;
+    color: #999999;
+  }
+  
+  .review-rating {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+  
+  .star {
+    color: #666666;
+  }
+  
+  .star.filled {
+    color: #ffd700;
+  }
+  
+  .review-text {
+    font-size: 0.9rem;
+    color: #1a1a1a;
+  }
+  
+  .about-me {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 16px;
+    
+  }
+  
+  .loading {
+    color: #ffffff;
+    font-size: 1.2rem;
+    text-align: center;
+    padding-top: 50px;
+  }
+  @media screen and (max-width: 600px) {
+    .coach-profile {
+      margin: 0;
+      border-radius: 0px;
+      padding-bottom: 10px; /* Space for fixed buttons */
     }
+  
+    .profile-content {
+      flex-direction: column;
+      padding: 20px;
+    }
+  
+    .sidebar {
+      order: 1;
+      width: 100%;
+      margin-right: 0px;
+    }
+  
+    .main-content {
+      order: 2;
+      width: 100%;
+    }
+
+    
+  .stats {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 0px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding-left: 50px;
+    padding-top: 15px;
+    border-bottom: 1px solid #333333;
+    padding-bottom: 20px;
+    gap: 120px;
+  }
+  
+  .stat {
+    margin-right: 20px;
+    
+    
+  }
+  
+  .stat-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 10px;
+    
+  }
+  
+  .stat-label {
+    color: #999999;
+    font-size: 0.9rem;
+    margin: 0;
+    color:#1a1a1a;
+  }
+  
+    .profile-actions {
+
+      position: fixed;
+      bottom: 10px; /* Changed from margin-top to bottom */
+      left: 10px;
+      right: 10px;
+      margin-top: 775px;
+      margin-left: 10px;
+      margin-right: 10px;
+      background-color:transparent; /* Changed to transparent */
+
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      padding: 0;
+      height: 60px; /* Fixed height for the button container */
+      gap: 10px;
+     border-radius: 10px;
+
+
+    }
+  
+    .btn {
+      flex: 1;
+      margin: 0 ;
+      padding: 0 20px;
+      font-size: 1.0rem;
+      height: 50px; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      border-radius: 20px;
+      background-color: grey
+    }
+  
+    .tab-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+      border-radius: 10px;
+      border-radius: 10px;
+      
+    }
+  
+    .tabs {
+      display: flex;
+      flex-direction: row;
+      border-bottom: 1px solid #e0e0e0;
+      
+      
+
+      padding: 10px 0;
+      /* background: none; */
+      
+      border: none;
+      color: #ffffff;
+      font-size: 1rem;
+    }
+  
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      background-color: aliceblue;
+      border: none;
+      color: #000000;
+      
+      
+    }
+  
+    .tab.active {
+     background-color: aliceblue;
+      font-weight: bold;
+      border-bottom: 2px solid #000000;
+     
+    }
+  
+    .tab-content {
+      padding: 20px 10px;
+      margin:2px;
+      box-shadow: none;
+      background-color: transparent;
+
+      max-height: calc(100vh - 300px);
+      overflow-y: auto;
+      background-color: aliceblue;
+      border-radius: 10px;
+       margin-top: 20px;
+      padding-top: 5px;
+    }
+  
+    .reviews-content, .about-content {
+      
+      padding: 16px 0;
+    }
+  
+    .review {
+      margin-left: 0;
+      padding: 16px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+  
+    .review:last-child {
+      border-bottom: none;
+    }
+  
+    .about-me {
+      padding: 16px 0;
+      background-color: transparent;
+      border-radius: 8px;
+      padding: 16px;
+    
+    }
+  
     .profile-header {
-        display: flex;
-        align-items: center;
-        
-    }
-    .profile-image-container {
-      position: static;
-      margin-bottom: 20px;
-    } */
-  
-/*     .profile-name {
-      margin-left: 10;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
     }
   
-    .profile-stats {
-      padding-left: 0;
-      justify-content: center;
+    .profile-left {
+      flex-direction: column;
+      
     }
-} */
+  
+    .profile-pic-container {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    .profile-info h1 {
+      margin-top: 10px;
+    }
+  
+    .stats, .coach-info, .specialities, .certifications {
+      margin-bottom: 15px;
+    }
+  }
+  
+
