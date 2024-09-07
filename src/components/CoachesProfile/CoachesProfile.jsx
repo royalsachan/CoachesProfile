@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Papa from 'papaparse';
+import { Star, User } from 'lucide-react';
 import './CoachesProfile.css';
 
-const CoachProfile = () => {
+export default function CoachProfile() {
   const { id } = useParams();
   const [coach, setCoach] = useState(null);
-  const [content, setContent] = useState([]);
+  const [reviews, setReviews] = useState([]);
+  const [aboutMe, setAboutMe] = useState('');
   const [activeTab, setActiveTab] = useState('reviews');
 
   useEffect(() => {
@@ -41,8 +43,7 @@ const CoachProfile = () => {
         const decoder = new TextDecoder('utf-8');
         const csv = decoder.decode(result.value);
         const results = Papa.parse(csv, { header: true });
-        setContent(results.data); 
-        console.log(results);
+        setReviews(results.data);
       } catch (error) {
         console.error('Error fetching or parsing reviews:', error);
       }
@@ -58,65 +59,59 @@ const CoachProfile = () => {
         const decoder = new TextDecoder('utf-8');
         const csv = decoder.decode(result.value);
         const results = Papa.parse(csv, { header: true });
-        setContent(results.data); 
-        console.log(results);
+        setAboutMe(results.data[0]?.content || '');
       } catch (error) {
         console.error('Error fetching or parsing about me content:', error);
       }
     };
 
-    if (activeTab === 'reviews') {
-      fetchReviews();  
-    } else if (activeTab === 'about') {
-      fetchAboutMe();  
-    }
-  }, [activeTab]);
+    fetchReviews();
+    fetchAboutMe();
+  }, []);
 
-  if (!coach) return <div>Loading...</div>;
+  if (!coach) return <div className="loading">Loading...</div>;
 
   return (
-    <div className="container">
-      
-      <div className="top-box">
-        <div className="header-container">
-        <div className="header-left">
-           <div className="profile-image-container">
-          <img src={coach.imageUrl} alt={coach.name} className="profile-pic" />
-          <span className="plan-type">{coach.plan}</span>
-        </div>
-          <h1 className="profile-name">{coach.name}</h1>
+    <div className="coach-profile">
+      <div className="cover-image" style={{backgroundImage: `url(${coach.coverImage})`}}>
+        <div className="cover-gradient"></div>
+      </div>
+      <div className="profile-header">
+        <div className="profile-left">
+          <div className="profile-pic-container">
+            <img src={coach.imageUrl} alt={coach.name} className="profile-pic" />
+            <span className="plan-type">{coach.plan}</span>
           </div>
-        <div className="profile-actions">
-          <Link to={`/coach/${id}/plans`} className="see-plans-btn">See Plans</Link>
-          <button className="chat-btn">Chat With Coach</button>
+          <div className="profile-info">
+            <h1>{coach.name}</h1>
+          </div>
+          <div className="profile-actions">
+            <Link to={`/coach/${id}/plans`} className="btn btn-primary">See Plans</Link>
+            <button className="btn btn-secondary">Chat With Coach</button>
+          </div>
         </div>
       </div>
-    </div> 
-
-      <div className="bottom-container">
-        <div className="side-box">
-          <div className='following'>
-            <div>
-              <h3>{coach.followers}</h3>
-              <p>Followers</p>
+      <div className="profile-content">
+        <div className="sidebar">
+          <div className="stats">
+            <div className="stat">
+              <p className="stat-value">{coach.followers}</p>
+              <p className="stat-label">Followers</p>
             </div>
-            <div className="divider"></div>
-            <div>
-              <h3>{coach.following}</h3>
-              <p>Following</p>
+            <div className="stat">
+              <p className="stat-value">{coach.following}</p>
+              <p className="stat-label">Following</p>
             </div>
           </div>
           <div className="coach-info">
-            <p><span className="icon">👤</span> {coach.peopleCoached} People Coached</p>
-            <p className="rating">
-              <span className="icon">⭐</span> {coach.rating} ({coach.reviews} Reviews)
-            </p>
+            <p><User size={16} /> {coach.peopleCoached} People Coached</p>
+            <p><Star size={16} /> {coach.rating} ({coach.reviews} Reviews)</p>
           </div>
           <div className="specialities">
             <h3>Speciality</h3>
             <div className="speciality-tags">
               {coach.specialities.split(',').map((spec, index) => (
-                <span key={index} className="speciality-tag">{spec.trim()}</span>
+                <span key={index} className="tag">{spec.trim()}</span>
               ))}
             </div>
           </div>
@@ -129,27 +124,59 @@ const CoachProfile = () => {
             </ul>
           </div>
         </div>
-      </div>
-
-      <div className="main-box">
-        <button className='reviews' onClick={() => setActiveTab('reviews')}>Reviews</button>
-        <button className='about' onClick={() => setActiveTab('about')}>About Me</button>
-      </div>
-      <div className="content">
-        {activeTab === 'reviews' && content.map((review, index) => (
-          <div key={index} className="review">
-            <h4>{review.name}</h4>
-            <p>{review.date}</p>
-            <p>{review.review}</p>
+        <div className="main-content">
+          <div className="tab-container">
+            <div className="tabs">
+              <button
+                className={`tab ${activeTab === 'reviews' ? 'active' : ''}`}
+                onClick={() => setActiveTab('reviews')}
+              >
+                Reviews
+              </button>
+              <button
+                className={`tab ${activeTab === 'about' ? 'active' : ''}`}
+                onClick={() => setActiveTab('about')}
+              >
+                About Me
+              </button>
+            </div>
+            <div className="tab-content">
+              {activeTab === 'reviews' && (
+                <div className="reviews-content">
+                  {reviews.map((review, index) => (
+                    <div key={index} className="review">
+                      <div className="review-header">
+                        <img src={review.avatar} alt={review.name} className="review-avatar" />
+                        <div>
+                          <h4>{review.name}</h4>
+                          <p className="review-date">{review.date}</p>
+                        </div>
+                      </div>
+                      <div className="review-rating">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} size={16} className={i < review.rating ? 'star filled' : 'star'} />
+                        ))}
+                      </div>
+                      <p className="review-text">{review.review}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {activeTab === 'about' && (
+                <div className="about-content">
+                  <div className="about-me">
+                    <p>{aboutMe}</p>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
-        ))}
-        {activeTab === 'about' && <div>{content[0]?.content}</div>}
+        </div>
       </div>
     </div>
   );
-};
+}
 
-export default CoachProfile;
 
 
 
