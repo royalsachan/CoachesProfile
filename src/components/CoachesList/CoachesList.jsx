@@ -21,12 +21,7 @@ const CoachesList = () => {
         const results = Papa.parse(csv, { header: true });
         console.log(results);
         
-        // Shuffle the coaches array
        
-        // const sortedCoaches = results.data.sort((a, b) => b.rating - a.rating);
-        // setCoaches(sortedCoaches);
-        // } catch (error) {
-        // console.error('Error fetching or parsing coaches:', error);
 
          const shuffledCoaches = shuffleArray(results.data);
          setCoaches(shuffledCoaches);
