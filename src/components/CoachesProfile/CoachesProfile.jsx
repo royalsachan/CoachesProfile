@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Papa from 'papaparse';
 
-import './CoachesProfile.css';
+import './CoacheProfile.css';
 
 export default function CoachProfile() {
   const { id } = useParams();
@@ -104,7 +104,7 @@ export default function CoachProfile() {
             </div>
           </div>
           <div className="coach-info">
-            <p>&#128100; {coach.peopleCoached} People Coached</p>
+          <p>&#128100; {coach.peopleCoached} People Coached</p>
           <p>&#9733; {coach.rating} ({coach.reviews} Reviews)</p>
           </div>
           <div className="specialities">
@@ -154,7 +154,7 @@ export default function CoachProfile() {
                       </div>
                       <div className="review-rating">
                         {[...Array(5)].map((_, i) => (
-                           <span key={i} className={i < review.rating ? 'star filled' : 'star'}>
+                     <span key={i} className={i < review.rating ? 'star filled' : 'star'}>
                      &#9733;
                    </span>
                         ))}
@@ -178,6 +178,7 @@ export default function CoachProfile() {
     </div>
   );
 }
+
 
 
 
